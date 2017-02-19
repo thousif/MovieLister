@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>App Showcase</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+ @keyframes gradient-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.button {
+  border-radius: 50em;
+  padding: 1em 3em;
+  line-height: 1.6em;
+  overflow: hidden;
+  font-family: "azo-sans-web", sans-serif;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: 0.3s cubic-bezier(0.34, 0.01, 0.35, 0.98), opacity 0.5s;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 0px 0px 0px 2px rgba(0, 0, 0, 0.3);
+  color: black;
+  font-size: 1.2em;
+  overflow: hidden;
+}
+
+.button:before {
+  transition: 1.5s cubic-bezier(0.34, 0.01, 0.35, 0.98);
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0;
+  background: linear-gradient(270deg, coral, #fff446, #15f0e5);
+  animation: gradient-move 15s ease infinite;
+  background-size: 2000% 2000%;
+  content: '';
+  border-radius: 50em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.button:after {
+  content: attr(data-title);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translate3d(0, -250%, 0);
+  transition: opacity 0.5s cubic-bezier(0.34, 0.01, 0.35, 0.98) 0.1s, transform 0s 0.6s;
+  opacity: 0;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.button span {
+  display: inline-block;
+  transition: opacity 1.5s cubic-bezier(0.34, 0.01, 0.35, 0.98) 0.5s;
+  opacity: 1;
+}
+.button:hover, .button:focus, .button:active {
+  box-shadow: inset 0px 0px 0px 2px transparent;
+  color: rgba(0, 0, 0, 0.4);
+}
+.button:hover:before, .button:focus:before, .button:active:before {
+  opacity: 1;
+  transition: 0.3s cubic-bezier(0.34, 0.01, 0.35, 0.98);
+}
+.button:hover span, .button:focus span, .button:active span {
+  transform: translate3d(0, 150%, 0);
+  transition: transform 0.5s cubic-bezier(1, 0, 0, 1), opacity 0s 0.5s;
+  opacity: 0;
+}
+.button:hover:after, .button:focus:after, .button:active:after {
+  transform: translate3d(0, -50%, 0);
+  transition: transform 0.5s cubic-bezier(1, 0, 0, 1) 0.1s;
+  opacity: 1;
+}
+</style>
+</head>
+
+<body>
+     <ui-view></ui-view>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bramski/angular-indexedDB/7ddb67d0/angular-indexed-db.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/whimsicalRipple.js"></script>
+</body>
+</html>
